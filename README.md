@@ -7,7 +7,7 @@ El diagrama de flujo que tenemos en nuestro código es el siguiente:
 
 ![diagrama de flujo laberinto](Laberinto diagrama de flujo_Ana López.jpg)
 
-´´´
+```
 laberinto = [
     ['a', 'a', 'a', 'a', 'a'], 
     ['a', 'a', 'a', 'a', 'a'],
@@ -37,3 +37,4 @@ laberinto[4][4] = 'S'
 
 for i in range(len(laberinto)):
     print(laberinto[i])
+    ´´´
