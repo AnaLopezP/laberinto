@@ -5,7 +5,7 @@ https://github.com/AnaLopezP/laberinto.git
 Hemos hecho un programa que crea un laberinto con las coordenadas de los muros, el camino, y la salida.
 El diagrama de flujo que tenemos en nuestro código es el siguiente:
 
-![diagrama de flujo adivine el número](Laberinto diagrama de flujo_Ana López.jpg)
+![diagrama de flujo adivine el número](Laberinto_diagrama_flujo.jpg)
 
 ```
 laberinto = [
