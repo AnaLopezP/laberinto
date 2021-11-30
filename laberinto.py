@@ -12,7 +12,7 @@ def es_muro(numA, numB):
         #print("índice i del laberinto = " + str(numA) + "índice j del laberinto = " + str(numB) + "valor i del muro = " + str(muro[i][0]) + "valor i del muro = " + str(muro[i][1]))
         if muro[i][0] == numA and muro[i][1] == numB:
             return True
-    
+
     return False
 
 
