@@ -7,7 +7,8 @@ El diagrama de flujo que tenemos en nuestro código es el siguiente:
 
 ![diagrama de flujo laberinto](Laberinto diagrama de flujo_Ana López.jpg)
 
-´´´´laberinto = [
+´´´
+laberinto = [
     ['a', 'a', 'a', 'a', 'a'], 
     ['a', 'a', 'a', 'a', 'a'],
     ['a', 'a', 'a', 'a', 'a'], 
