@@ -7,6 +7,8 @@ laberinto = [
     ]
 muro = ((0,1), (0,2), (0,3), (0,4), (1,1), (2,1), (2,3), (3,3), (4,0), (4,1), (4,2), (4,3))
 camino = []
+visitadas = []
+solucion = []
 
 
 def meterEnLista(numA, numB, lista):
@@ -15,10 +17,10 @@ def meterEnLista(numA, numB, lista):
     par.append(numB)
     lista.append(par)
 
-def es_muro(numA, numB):
-    for i in range(len(muro)):
+def estaEnLista(numA, numB, lista):
+    for i in range(len(lista)):
         #print("índice i del laberinto = " + str(numA) + "índice j del laberinto = " + str(numB) + "valor i del muro = " + str(muro[i][0]) + "valor i del muro = " + str(muro[i][1]))
-        if muro[i][0] == numA and muro[i][1] == numB:
+        if lista[i][0] == numA and lista[i][1] == numB:
             return True
 
     return False
@@ -28,7 +30,7 @@ def init_laberinto():
     for i in range(len(laberinto)):
         for j in range(len(laberinto[0])):
             #print(str(i) + ' ' + str(j))
-            if es_muro(i, j) == True: 
+            if estaEnLista(i, j, muro) == True: 
                 laberinto[i][j] = 'X'
             else:
                 laberinto[i][j] = ' '
@@ -43,6 +45,10 @@ def init_camino():
                 meterEnLista(i, j, camino)
             elif laberinto[i][j] == 'S':
                 meterEnLista(i, j, camino)
+
+    
+    
+
 
        
 
