@@ -46,6 +46,42 @@ def init_camino():
             elif laberinto[i][j] == 'S':
                 meterEnLista(i, j, camino)
 
+
+def arriba(i, j):
+    posicion_actual = laberinto(i, j)
+    nueva_posicion = (i-1, j)
+    if nueva_posicion != camino or nueva_posicion == visitadas:
+        visitadas.append(posicion_actual)
+        posicion_actual = nueva_posicion
+        solucion.append("arriba")
+    return solucion
+
+def abajo(i, j):
+    posicion_actual = laberinto(i, j)
+    nueva_posicion = (i+1, j)
+    if nueva_posicion != camino or nueva_posicion == visitadas:
+        visitadas.append(posicion_actual)
+        posicion_actual = nueva_posicion
+        solucion.append("abajo")
+    return solucion
+
+def derecha(i, j):
+    posicion_actual = laberinto(i, j)
+    nueva_posicion = (i, j+1)
+    if nueva_posicion != camino or nueva_posicion == visitadas:
+        visitadas.append(posicion_actual)
+        posicion_actual = nueva_posicion
+        solucion.append("derecha")
+    return solucion
+
+def izquierda(i, j):
+    posicion_actual = laberinto(i, j)
+    nueva_posicion = (i, j-1)
+    if nueva_posicion != camino or nueva_posicion == visitadas:
+        visitadas.append(posicion_actual)
+        posicion_actual = nueva_posicion
+        solucion.append("izquierda")
+    return solucion
     
     
 
@@ -59,4 +95,5 @@ for i in range(len(laberinto)):
     print(laberinto[i])
 
 print(camino)
+
             
