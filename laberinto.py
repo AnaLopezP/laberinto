@@ -48,41 +48,54 @@ def init_camino():
 
 
 def arriba(i, j):
-    posicion_actual = laberinto(i, j)
-    nueva_posicion = (i-1, j)
-    if nueva_posicion != camino or nueva_posicion == visitadas:
-        visitadas.append(posicion_actual)
-        posicion_actual = nueva_posicion
-        solucion.append("arriba")
-    return solucion
+    if i > 0 and i < 5:
+        if laberinto[i-1][j] != "X":
+            if estaEnLista(i-1, j, visitadas) == False:
+                return True
+    return False
 
 def abajo(i, j):
-    posicion_actual = laberinto(i, j)
-    nueva_posicion = (i+1, j)
-    if nueva_posicion != camino or nueva_posicion == visitadas:
-        visitadas.append(posicion_actual)
-        posicion_actual = nueva_posicion
-        solucion.append("abajo")
-    return solucion
+    if i >= 0 and i < 4:
+        if laberinto[i+1][j] != "X":
+            if estaEnLista(i+1, j, visitadas) == False:
+                return True
+    return False
 
 def derecha(i, j):
-    posicion_actual = laberinto(i, j)
-    nueva_posicion = (i, j+1)
-    if nueva_posicion != camino or nueva_posicion == visitadas:
-        visitadas.append(posicion_actual)
-        posicion_actual = nueva_posicion
-        solucion.append("derecha")
-    return solucion
+    if j >= 0 and j < 4:
+        if laberinto[i][j+1] != "X":
+            if estaEnLista(i, j+1, visitadas) == False:
+                return True
+    return False
 
 def izquierda(i, j):
-    posicion_actual = laberinto(i, j)
-    nueva_posicion = (i, j-1)
-    if nueva_posicion != camino or nueva_posicion == visitadas:
-        visitadas.append(posicion_actual)
-        posicion_actual = nueva_posicion
-        solucion.append("izquierda")
-    return solucion
-    
+    if j > 0 and j <= 5:
+        if laberinto[i][j-1] != "X":
+            if estaEnLista(i, j-1, visitadas) == False:
+                return True
+    return False
+
+def calcular_siguiente(posicion_actual):
+    coordenada = []
+    i = posicion_actual[0]
+    j = posicion_actual[1]
+    if arriba(i, j) == True:
+        solucion.append("Arriba")
+        coordenada.append(i-1)
+        coordenada.append(j)
+    elif abajo(i, j) == True:
+        solucion.append("Abajo")
+        coordenada.append(i+1)
+        coordenada.append(j)
+    elif izquierda(i, j) == True:
+        solucion.append("Izquierda")
+        coordenada.append(i)
+        coordenada.append(j-1)
+    elif derecha(i, j) == True:
+        solucion.append("Derecha")
+        coordenada.append(i)
+        coordenada.append(j+1)
+    return coordenada
     
 
 
@@ -96,4 +109,16 @@ for i in range(len(laberinto)):
 
 print(camino)
 
-            
+posicion_actual = [0,0]
+i = posicion_actual[0]
+j = posicion_actual[1]
+while laberinto[i][j] != "S":
+    posicion_siguiente = calcular_siguiente(posicion_actual)
+    meterEnLista(posicion_actual[0], posicion_actual[1], visitadas)
+    posicion_actual[0] = posicion_siguiente[0]
+    posicion_actual[1] = posicion_siguiente[1]
+    i = posicion_actual[0]
+    j = posicion_actual[1]
+
+print(solucion)
+print("fin")
